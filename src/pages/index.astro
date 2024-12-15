@@ -1,0 +1,158 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout>
+  <div class="w-full bg-zinc-900">
+    <div class="grid grid-cols-8 grid-rows-20 gap-2 overflow-hidden">
+      <div class="elem col-span-1 row-span-1" style="--r: 1; --c: 3;">
+        <img src="./img/1.jpg" alt="Image 1" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 1; --c: 7;">
+        <img src="./img/2.jpg" alt="Image 2" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 2; --c: 2;">
+        <img src="./img/3.jpg" alt="Image 3" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 2; --c: 6;">
+        <img src="./img/4.jpg" alt="Image 4" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 3; --c: 4;">
+        <img src="./img/5.jpg" alt="Image 5" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 3; --c: 8;">
+        <img src="./img/6.jpg" alt="Image 6" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 4; --c: 1;">
+        <img src="./img/7.jpg" alt="Image 7" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 4; --c: 5;">
+        <img src="./img/8.jpg" alt="Image 8" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 5; --c: 3;">
+        <img src="./img/9.jpg" alt="Image 9" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 5; --c: 7;">
+        <img src="./img/10.jpg" alt="Image 10" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 6; --c: 2;">
+        <img src="./img/11.jpg" alt="Image 11" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 6; --c: 6;">
+        <img src="./img/12.jpg" alt="Image 12" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 7; --c: 4;">
+        <img src="./img/13.jpg" alt="Image 13" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 7; --c: 8;">
+        <img src="./img/14.jpg" alt="Image 14" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 8; --c: 1;">
+        <img src="./img/15.jpg" alt="Image 15" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 8; --c: 5;">
+        <img src="./img/16.jpg" alt="Image 16" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 9; --c: 3;">
+        <img src="./img/17.jpg" alt="Image 17" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 9; --c: 7;">
+        <img src="./img/18.jpg" alt="Image 18" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 10; --c: 2;">
+        <img src="./img/19.jpg" alt="Image 19" />
+      </div>
+      <div class="elem col-span-1 row-span-1" style="--r: 10; --c: 6;">
+        <img src="./img/20.jpg" alt="Image 20" />
+      </div>
+    </div>
+
+    <div
+      class="fixed top-0 left-0 w-full h-full flex flex-col items-center justify-center text-white"
+    >
+      <h1 class="text-8xl uppercase mb-4">Thomas Vance<sup>®</sup></h1>
+      <h2 class="text-5xl">並外れたファッション</h2>
+    </div>
+
+    <div
+      class="w-full h-screen bg-[#d1d1d1] items-center justify-center flex mx-auto py-96 relative z-[999] text-center"
+    >
+      <p
+        class="text-black w-3/4 text-3xl font-['Helvetica'] text-left leading-[2.7rem] drop-shadow-sm"
+      >
+        Thomas Vance is a renowned clothing brand known for its exceptional fashion and unique
+        designs. Our collections are crafted with the finest materials and attention to detail,
+        ensuring that each piece is a work of art. Discover the elegance and sophistication of
+        Thomas Vance, where fashion meets excellence.
+      </p>
+    </div>
+  </div>
+</Layout>
+
+<style>
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .grid > div {
+    grid-row: var(--r);
+    grid-column: var(--c);
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  html {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
+</style>
+
+<script>
+  import gsap from 'gsap';
+  import ScrollTrigger from 'gsap/ScrollTrigger';
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.querySelectorAll('.elem').forEach((elem) => {
+    let image = elem.querySelector('img');
+    let tl = gsap.timeline();
+
+    let xTransform = gsap.utils.random(-100, 100);
+
+    tl.set(
+      image,
+      {
+        transformOrigin: `${xTransform < 0 ? 0 : '100%'}`,
+      },
+      'start'
+    )
+      .to(
+        image,
+        {
+          scale: 0,
+          ease: 'none',
+          duration: 1,
+          scrollTrigger: {
+            trigger: image,
+            start: 'top top',
+            end: 'bottom top',
+            scrub: true,
+          },
+        },
+        'start'
+      )
+      .to(elem, {
+        xPercent: xTransform,
+        ease: 'none',
+        scrollTrigger: {
+          trigger: image,
+          start: 'top bottom',
+          end: 'bottom top',
+          scrub: true,
+        },
+      });
+  });
+</script>
