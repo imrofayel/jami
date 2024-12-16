@@ -1,17 +1,47 @@
-@import url('https://fonts.cdnfonts.com/css/helvetica-neue-55');
-
 @import url('https://fonts.googleapis.com/css2?family=Albert+Sans:ital,wght@0,100..900;1,100..900&family=Anaheim:wght@400..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 body {
-  font-family: 'Helvetica Neue', sans-serif;
+  font-family: 'Helvetica', sans-serif;
 }
 
 .inter {
-  font-family: 'Inter', serif;
+  font-family: 'Inter', sans-serif;
   font-optical-sizing: auto;
 }
 
+@font-face {
+  font-family: 'Helvetica';
+  src: url('Helvetica.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
 .helvetica {
-  font-family: 'Helvetica Neue', serif;
+  font-family: 'Helvetica', sans-serif;
   font-optical-sizing: auto;
+}
+
+.nav-link {
+  color: #ffffff;
+  text-decoration: none;
+  margin-right: 2rem;
+  font-size: 1.1rem;
+  opacity: 0.9;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.nav-link:hover {
+  opacity: 1;
+}
+
+.social-icon {
+  color: #ffffff;
+  margin-left: 1.5rem;
+  opacity: 0.8;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.social-icon:hover {
+  opacity: 1;
 }
