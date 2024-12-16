@@ -4,5 +4,8 @@
   "[astro]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  "prettier.documentSelectors": ["**/*.astro"]
+  "prettier.documentSelectors": ["**/*.astro"],
+  "[xml]": {
+    "editor.defaultFormatter": "j69.ejs-beautify"
+  }
 }
